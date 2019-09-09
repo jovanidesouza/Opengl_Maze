@@ -7,8 +7,6 @@
 //variáveis para camera
 GLint eyex = 0, eyey = 0, eyez = 0;
 GLint centrox = 0, centroy = 0, centroz = 0;
-//variável para esfera
-GLint move_x = 0, move_y = 0, move_z = 0;
 
 void keyboard(int key, int x, int y){
 
@@ -40,8 +38,8 @@ void draw(){
 
   //Background Color
 	glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
-	// Clear screen
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+  // Clear screen
+  glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
   glBegin(GL_QUADS);
       //define a cor do chão
@@ -53,11 +51,8 @@ void draw(){
       glVertex3f(-0.5f, 0.5f, 0.f);
 
   glEnd();
-
-
   glFlush();
 	glutSwapBuffers();
-
 }
 
 
@@ -74,10 +69,11 @@ int main(int argc, char **argv) {
   glutCreateWindow("Opengl CC Maze");
   // Enable Z-buffer depth test
 	glEnable(GL_DEPTH_TEST);
-
+  //callback draw
   glutDisplayFunc(draw);
+  //get keyborad actions
 	glutSpecialFunc(keyboard);
-
+  //main loop
   glutMainLoop();
 
 }
