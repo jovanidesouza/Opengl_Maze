@@ -29,15 +29,16 @@ void keyboard(int key, int x, int y){
 	} else if (key == GLUT_KEY_UP) {
 		rotating_X += 5;
 	} else if(key == GLUT_KEY_F2){
-    eyex+=0.05;
-
+    tam = tam / 2;
   } else if(key == GLUT_KEY_F3){
-    eyex-=0.05;
+    tam = tam * 2;
+
   }
   glutPostRedisplay();
 }
 
 void draw(){
+
 
 	glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -61,38 +62,45 @@ void draw(){
   //base
   glBegin(GL_QUADS);
     glColor3f(0.20, 0.20, 0.20);
-    glVertex3f( -tam, tam, -0.01f);
-    glVertex3f( -tam, -tam, -0.01f);
-    glVertex3f( tam, -tam, -0.01f);
-    glVertex3f( tam, tam, -0.01f);
+    glVertex3f( -tam, tam, tam);
+    glVertex3f( -tam, -tam, tam);
+    glVertex3f( tam, -tam, tam);
+    glVertex3f( tam, tam, tam);
   glEnd();
   glBegin(GL_QUADS);
     glColor3f(1, 0, 1);
-    glVertex3f( -tam, tam, -0.01f);
-    glVertex3f( -tam, tam, -0.2f);
-    glVertex3f( tam, tam, -0.2f);
-    glVertex3f( tam, tam, -0.01f);
+    glVertex3f( -tam, tam, tam);
+    glVertex3f( -tam, tam, -tam);
+    glVertex3f( tam, tam, -tam);
+    glVertex3f( tam, tam, tam);
   glEnd();
   glBegin(GL_QUADS);
     glColor3f(0, 1, 0);
-    glVertex3f( tam, tam, -0.01f);
-    glVertex3f( tam, -tam, -0.01f);
-    glVertex3f( tam, -tam, -0.2f);
-    glVertex3f( tam, tam, -0.2f);
+    glVertex3f( tam, tam, tam);
+    glVertex3f( tam, -tam, tam);
+    glVertex3f( tam, -tam, -tam);
+    glVertex3f( tam, tam, -tam);
   glEnd();
   glBegin(GL_QUADS);
     glColor3f(1, 0, 0);
-    glVertex3f( -tam, tam, -0.01f);
-    glVertex3f( -tam, -tam, -0.01f);
-    glVertex3f( -tam, -tam, -0.2f);
-    glVertex3f( -tam, tam, -0.2f);
+    glVertex3f( -tam, tam, tam);
+    glVertex3f( -tam, -tam, tam);
+    glVertex3f( -tam, -tam, -tam);
+    glVertex3f( -tam, tam, -tam);
   glEnd();
   glBegin(GL_QUADS);
     glColor3f(0, 0, 1);
-    glVertex3f( -tam, -tam, -0.01f);
-    glVertex3f( tam, -tam, -0.01f);
-    glVertex3f( tam, -tam, -0.2f);
-    glVertex3f( -tam, -tam, -0.2f);
+    glVertex3f( -tam, -tam, tam);
+    glVertex3f( tam, -tam, tam);
+    glVertex3f( tam, -tam, -tam);
+    glVertex3f( -tam, -tam, -tam);
+  glEnd();
+  glBegin(GL_QUADS);
+    glColor3f(0.20, 0.20, 0.20);
+    glVertex3f( -tam, tam, -tam);
+    glVertex3f( -tam, -tam, -tam);
+    glVertex3f( tam, -tam, -tam);
+    glVertex3f( tam, tam, -tam);
   glEnd();
 
   glFlush();
