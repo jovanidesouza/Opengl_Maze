@@ -11,6 +11,7 @@ GLfloat centrox = 0, centroy = 0, centroz = 0.5;
 //variáveis para rotação da base
 GLfloat rotating_X = 0;
 GLfloat rotating_Y = 0;
+GLfloat rotating_Z = 0;
 float tam = 0.1;
 
 //////////////////////////////////////////////////////////////////////////////////
@@ -32,8 +33,11 @@ void keyboard(int key, int x, int y){
     tam = tam / 2;
   } else if(key == GLUT_KEY_F3){
     tam = tam * 2;
-
-  }
+  } else if(key == GLUT_KEY_F4){
+    rotating_Z += 5;
+  } else if(key == GLUT_KEY_F5){
+    rotating_Z -= 5;
+}
   glutPostRedisplay();
 }
 
@@ -47,6 +51,7 @@ void draw(){
   //gluLookAt(eyex,eyey,eyez, centrox,centroy,centroz, 0,1,0);
 	glRotatef(rotating_X, 1.0f, 0.0f, 0.0f);
 	glRotatef(rotating_Y, 0.0f, 1.0f, 0.0f);
+  glRotatef(rotating_Z, 0.0f, 0.0f, 1.0f);
 
   glBegin(GL_QUADS);
     //define a cor do chão
@@ -102,6 +107,7 @@ void draw(){
     glVertex3f( tam, -tam, -tam);
     glVertex3f( tam, tam, -tam);
   glEnd();
+
 
   glFlush();
 	glutSwapBuffers();
